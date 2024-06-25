@@ -11,6 +11,7 @@ def check_url_patterns(url):
         r"ww\.mirrobox\.com",
         r"www\.nephobox\.com",
         r"freeterabox\.com",
+        r"terasharelink\.com",
         r"www\.freeterabox\.com",
         r"1024tera\.com",
         r"4funbox\.co",
