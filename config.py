@@ -12,7 +12,7 @@ PORT = 16448  # redis port
 PASSWORD = "o5BMtARZTkrMHP7xvxkOEx6XrXS583NN"  # redis password
 
 PRIVATE_CHAT_ID = -1002189431069
-ADMINS = [6695586027]
+ADMINS = [7079923017]
 '''
 #Database 
 #Database [https://youtu.be/qFB0cFqiyOM?si=fVicsCcRSmpuja1A]
