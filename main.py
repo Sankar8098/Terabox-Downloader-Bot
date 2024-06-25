@@ -253,7 +253,7 @@ async def handle_message(m: Message):
             caption=f"""
 File Name: `{data['file_name']}`
 Size: **{data["size"]}** 
-Direct Link: [Click Here](https://t.me/TeraboxDownloadeRobot?start={uuid})
+Direct Link: [Click Here](https://t.me/Terabox_download_SK_Bot?start={uuid})
 
 @VijayTv_SerialVideos
 """,
@@ -277,7 +277,7 @@ Direct Link: [Click Here](https://t.me/TeraboxDownloadeRobot?start={uuid})
             caption=f"""
 File Name: `{data['file_name']}`
 Size: **{data["size"]}** 
-Direct Link: [Click Here](https://t.me/TeraboxDownloadeRobot?start={uuid})
+Direct Link: [Click Here](https://t.me/Terabox_download_SK_Bot?start={uuid})
 
 Share : @VijayTv_SerialVideos
 """,
