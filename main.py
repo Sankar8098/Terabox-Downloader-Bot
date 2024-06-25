@@ -207,32 +207,26 @@ async def handle_message(event: Message):
                 return
             bar_length = 20
             percent = current_downloaded / total_downloaded
-            arrow = "█" * int(percent * bar_length)
-            spaces = "░" * (bar_length - len(arrow))
+            progress = "#" * int(bar_length * percent)
+            remaining = "-" * (bar_length - len(progress))
+            speed = current_downloaded / (time.time() - start_time)
+            await hm.edit(
+                f"**[{progress + remaining}]** {percent:.2%}\n"
+                f"**{state}**: {convert_seconds(time.time() - start_time)}\n"
+                f"**Speed**: {get_formatted_size(speed)}/s\n"
+                f"**Size**: {data['size']}\n"
+            )
 
-            elapsed_time = time.time() - start_time
-            head_text = f"{state} `{data['file_name']}`"
-            progress_bar = f"[{arrow + spaces}] {percent:.2%}"
-            upload_speed = current_downloaded / elapsed_time if elapsed_time > 0 else 0
-            speed_line = f"Speed: **{get_formatted_size(upload_speed)}/s**"
-            time_remaining = (total_downloaded - current_downloaded) / upload_speed if upload_speed > 0 else 0
-            time_line = f"Time Remaining: `{convert_seconds(time_remaining)}`"
-            size_line = f"Size: **{get_formatted_size(current_downloaded)}** / **{get_formatted_size(total_downloaded)}**"
-
-            await hm.edit(f"{head_text}\n{progress_bar}\n{speed_line}\n{time_line}\n{size_line}", parse_mode="markdown")
-
-        uuid = str(uuid4())
-        thumbnail = download_image_to_bytesio(data["thumb"], "thumbnail.png")
-
+        thumbnail = await download_image_to_bytesio(data["thumbnail"])
+        uuid = uuid4().hex
         try:
             file = await bot.send_file(
                 PRIVATE_CHAT_ID,
-                file=data["direct_link"],
-                thumb=thumbnail if thumbnail else None,
-                progress_callback=progress_bar,
+                data["direct_link"],
                 caption=f"""
         File Name: `{data['file_name']}`
-        Size: **{data["size"]}** 
+        Size: **{data["size"]}**
+        
         Direct Link: [Click Here](https://t.me/Terabox_download_SK_Bot?start={uuid})
         @VijayTv_SerialVideos
         """,
