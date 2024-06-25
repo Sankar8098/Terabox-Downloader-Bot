@@ -55,18 +55,18 @@ async def start(m: UpdateNewMessage):
 
 📥 **Send me the Terabox link and I will start downloading it for you.** 📥
 
-🔗 **Join [Official Channel](https://t.me/ultroid_official) for Updates** 🔗
+🔗 **Join [Official Channel](https://t.me/VijayTv_SerialVideos) for Updates** 🔗
 
-🤖 **Make Your Own Private Terabox Bot at [UltroidxTeam](https://t.me/ultroidxTeam)** 🤖
+🤖 **Make Your Own Private Terabox Bot at [UltroidxTeam](https://t.me/VijayTv_SerialVideos)** 🤖
 """
-    check_if_ultroid_official = await is_user_on_chat(bot, "@ultroid_official", m.peer_id)
+    check_if_ultroid_official = await is_user_on_chat(bot, "@VijayTv_SerialVideos", m.peer_id)
     if not check_if_ultroid_official:
-        await m.reply("Please join @ultroid_official then send me the link again.")
+        await m.reply("Please join @VijayTv_SerialVideos then send me the link again.")
         return
 
-    check_if_ultroid_official_chat = await is_user_on_chat(bot, "@ultroidofficial_chat", m.peer_id)
+    check_if_ultroid_official_chat = await is_user_on_chat(bot, "@VijayTv_SerialVideos", m.peer_id)
     if not check_if_ultroid_official_chat:
-        await m.reply("Please join @ultroidofficial_chat then send me the link again.")
+        await m.reply("Please join @VijayTv_SerialVideos then send me the link again.")
         return
 
     await m.reply(reply_text, link_preview=False, parse_mode="markdown")
@@ -85,13 +85,13 @@ async def start(m: UpdateNewMessage):
 async def start(m: UpdateNewMessage):
     text = m.pattern_match.group(1)
     fileid = db.get(str(text))
-    check_if = await is_user_on_chat(bot, "@ultroid_official", m.peer_id)
+    check_if = await is_user_on_chat(bot, "@VijayTv_SerialVideos", m.peer_id)
     if not check_if:
-        return await m.reply("Please join @ultroid_official then send me the link again.")
-    check_if = await is_user_on_chat(bot, "@ultroidofficial_chat", m.peer_id)
+        return await m.reply("Please join @VijayTv_SerialVideos then send me the link again.")
+    check_if = await is_user_on_chat(bot, "@VijayTv_SerialVideos", m.peer_id)
     if not check_if:
         return await m.reply(
-            "Please join @ultroidofficial_chat then send me the link again."
+            "Please join @VijayTv_SerialVideos then send me the link again."
         )
     await bot(
         ForwardMessagesRequest(
@@ -142,10 +142,10 @@ async def handle_message(m: Message):
     url = get_urls_from_string(m.text)
     if not url:
         return await m.reply("Please enter a valid url.")
-    check_if = await is_user_on_chat(bot, "@ultroid_official", m.peer_id)
+    check_if = await is_user_on_chat(bot, "@VijayTv_SerialVideos", m.peer_id)
     if not check_if:
-        return await m.reply("Please join @ultroid_official then send me the link again.")
-    check_if = await is_user_on_chat(bot, "@ultroidofficial_chat", m.peer_id)
+        return await m.reply("Please join @VijayTv_SerialVideos then send me the link again.")
+    check_if = await is_user_on_chat(bot, "@VijayTv_SerialVideos", m.peer_id)
     if not check_if:
         return await m.reply(
             "Please join @ultroidofficial_chat then send me the link again."
@@ -255,7 +255,7 @@ File Name: `{data['file_name']}`
 Size: **{data["size"]}** 
 Direct Link: [Click Here](https://t.me/TeraboxDownloadeRobot?start={uuid})
 
-@ultroid_official
+@VijayTv_SerialVideos
 """,
             supports_streaming=True,
             spoiler=True,
@@ -279,7 +279,7 @@ File Name: `{data['file_name']}`
 Size: **{data["size"]}** 
 Direct Link: [Click Here](https://t.me/TeraboxDownloadeRobot?start={uuid})
 
-Share : @ultroid_official
+Share : @VijayTv_SerialVideos
 """,
             progress_callback=progress_bar,
             thumb=thumbnail if thumbnail else None,
